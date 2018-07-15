@@ -8,7 +8,6 @@ public class HienThi20SoNguyenToDauTien {
             if(kiemTra(n) != 0){
                 System.out.print(" " + n);
                 q++;
-                n++;
             }else{
                 n++;
                 continue;
