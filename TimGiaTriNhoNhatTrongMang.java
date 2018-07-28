@@ -1,30 +1,31 @@
-package Mang;
+package com.phuongThuc;
 import java.util.Scanner;
 public class TimGiaTriNhoNhatTrongMang {
     public static void main(String[] args){
-        int size;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a size: ");
-        size = scanner.nextInt();
-        System.out.print("Enter the element for array: ");
+        int size = scanner.nextInt();
+        System.out.print("Enter the list of element for array: ");
         int[] array = new int[size];
-        int i = 0;
-        for(i = 0; i < size; i++){
-            array[i] = scanner.nextInt();
-        }
-        System.out.print("The element of array: ");
-        for(int arr: array){
-            System.out.print("\t" + arr);
-        }
-        System.out.print("\nThe minimum element of array is " + min(array));
+        enterElement(array,size);
+        System.out.print("The minimum in array is array[" + minValue(array, size) + "] = " + array[minValue(array, size)]);
     }
-    public static int min(int[] array){
+    public static int minValue(int[] array, int size){
         int min = array[0];
-        for(int i = 0; i < array.length; i++){
-            if(min > array[i]){
-                min = array[i];
+        int position = 0;
+        for(int y = 0; y < size; y++){
+            if(min > array[y]){
+                min = array[y];
+                position = y;
             }
         }
-        return min;
+        return position;
+    }
+    public static void enterElement(int[] array, int size){
+        Scanner scanner = new Scanner(System.in);
+        for(int y = 0; y < size; y++){
+            System.out.print("array["+ y + "] = ");
+            array[y] = scanner.nextInt();
+        }
     }
 }
